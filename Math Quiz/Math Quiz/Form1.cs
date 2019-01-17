@@ -78,7 +78,8 @@ namespace Math_Quiz
 
         private void button1_Click(object sender, EventArgs e)
         {
-        if (CheckMultAnswer() && CheckSubAnswer() && CheckDivisionAnswer() && CheckAddAnswer())
+            giveFeedback();
+            if (CheckAddAnswer() && CheckMultAnswer() && CheckSubAnswer() && CheckDivisionAnswer())
         {
                 timer1.Stop();
                 startButton.Enabled = true;

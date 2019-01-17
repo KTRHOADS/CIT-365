@@ -82,5 +82,32 @@
   <ItemGroup>
     <None Include="images\Button_check.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\219-2195561_caribbean-blue-equal-sign-2-icon-equal-to-sign-clipart-small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\219-2195561_caribbean-blue-equal-sign-2-icon-equal-to-sign-clipart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\blue-submit-button-png-2-small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\blue-submit-button-png-2.png" />
+    <Content Include="images\button-start-game-small-2.png" />
+    <Content Include="images\button-start-game-small.png" />
+    <Content Include="images\correct.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\division-small.jpg" />
+    <Content Include="images\minus-small.png" />
+    <Content Include="images\mult-small.jpg" />
+    <Content Include="images\plus-sign-small-45.jpg" />
+    <Content Include="images\plus-sign-small.jpg" />
+    <Content Include="images\plus-sign.jpg" />
+    <Content Include="images\small-minus.png" />
+    <Content Include="images\wrong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

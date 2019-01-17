@@ -31,8 +31,8 @@ namespace Math_Quiz
         int numCorrect;
 
         //Feedback Images
-        Image correct = Image.FromFile("C:/Users/Todd/source/repos/Math Quiz/Math Quiz/images/correct.png");
-        Image wrong = Image.FromFile("C:/Users/Todd/source/repos/Math Quiz/Math Quiz/images/wrong.png");
+        Image correct = Image.FromFile("images/correct.png");
+        Image wrong = Image.FromFile("images/wrong.png");
 
 
 
@@ -422,7 +422,7 @@ namespace Math_Quiz
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(726, 444);
+            this.ClientSize = new System.Drawing.Size(726, 429);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.divisionFeedback);
             this.Controls.Add(this.multFeedback);
@@ -531,32 +531,34 @@ namespace Math_Quiz
 
         private bool CheckAddAnswer()
         {
+            numCorrect = 0;
             if (addend1 + addend2 == sum.Value)
             {
-                addFeedback.Image = correct;
+                
                 numCorrect++;
                 return true;
             }
             else
             {
 
-                addFeedback.Image = wrong;
+                
                 return false;
             }
         }
+
 
         private bool CheckSubAnswer()
         {
             if (sub1 - sub2 == difference.Value)
             {
-                subFeedback.Image = correct;
+                
                 numCorrect++;
                 return true;
             }
             else
             {
 
-                subFeedback.Image = wrong;
+                //subFeedback.Image = wrong;
                 return false;
             }
 
@@ -565,16 +567,17 @@ namespace Math_Quiz
 
         private bool CheckMultAnswer()
         {
+            
             if (firstMultiplier * secondMultiplier == multAnswerBox.Value)
             {
-                multFeedback.Image = correct;
+               
                 numCorrect++;
                 return true;
             }
             else
             {
 
-                multFeedback.Image = wrong;
+               
                 return false;
             }
         }
@@ -583,18 +586,61 @@ namespace Math_Quiz
         {
             if ( tempAnswer/divisor  == divisionAnswerBox.Value)
             {
-                divisionFeedback.Image = correct;
+                
                 numCorrect++;
                 return true;
             }
             else
             {
 
-                divisionFeedback.Image = wrong;
+                
                 return false;
             }
         }
 
+        private void giveFeedback() {
+            numCorrect = 0;
+
+            if (CheckAddAnswer())
+            {
+                addFeedback.Image = correct;
+                numCorrect++;
+            }
+
+            else {
+                addFeedback.Image = wrong;
+            }
+
+            if (CheckDivisionAnswer())
+            {
+                divisionFeedback.Image = correct;
+                numCorrect++;
+            }
+
+            else {
+                divisionFeedback.Image = wrong;
+            }
+
+            if (CheckMultAnswer())
+            {
+                multFeedback.Image = correct;
+                numCorrect++;
+            }
+
+            else {
+                multFeedback.Image = wrong;
+            }
+
+            if (CheckSubAnswer())
+            {
+                subFeedback.Image = correct;
+                numCorrect++;
+            }
+
+            else {
+                subFeedback.Image = wrong;
+            }
+        }
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown difference;
         private System.Windows.Forms.Label label4;
