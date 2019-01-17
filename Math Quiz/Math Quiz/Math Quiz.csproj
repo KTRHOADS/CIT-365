@@ -105,6 +105,7 @@
     <Content Include="images\plus-sign-small.jpg" />
     <Content Include="images\plus-sign.jpg" />
     <Content Include="images\small-minus.png" />
+    <None Include="images\Start_button.png" />
     <Content Include="images\wrong.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

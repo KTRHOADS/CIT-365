@@ -29,12 +29,7 @@ namespace Math_Quiz
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            StartQuiz();
-            startButton.Enabled = false;
-            sum.Value = 0;
-            difference.Value = 0;
-            divisionAnswerBox.Value = 0;
-            multAnswerBox.Value = 0;
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -78,20 +73,7 @@ namespace Math_Quiz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            giveFeedback();
-            if (CheckAddAnswer() && CheckMultAnswer() && CheckSubAnswer() && CheckDivisionAnswer())
-        {
-                timer1.Stop();
-                startButton.Enabled = true;
-                timeLabel.Text = "Time's up!";
-                MessageBox.Show("You answered all 4 questions correctly!");
-            
-            }
-
-        else
-        {
-            timeRemaining--;
-        }
+           
         } 
 
         private void sum_ValueChanged(object sender, EventArgs e)
@@ -109,6 +91,34 @@ namespace Math_Quiz
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            giveFeedback();
+            if (CheckAddAnswer() && CheckMultAnswer() && CheckSubAnswer() && CheckDivisionAnswer())
+            {
+                timer1.Stop();
+                startButton.Enabled = true;
+                timeLabel.Text = "Time's up!";
+                MessageBox.Show("You answered all 4 questions correctly!");
+
+            }
+
+            else
+            {
+                timeRemaining--;
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            StartQuiz();
+            startButton.Enabled = false;
+            sum.Value = 0;
+            difference.Value = 0;
+            divisionAnswerBox.Value = 0;
+            multAnswerBox.Value = 0;
         }
     }
     }

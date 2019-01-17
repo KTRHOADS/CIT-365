@@ -71,7 +71,6 @@ namespace Math_Quiz
             this.plusEquals = new System.Windows.Forms.Label();
             this.plusLabel1 = new System.Windows.Forms.Label();
             this.plusLabel2 = new System.Windows.Forms.Label();
-            this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sum = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -90,12 +89,12 @@ namespace Math_Quiz
             this.dividend1 = new System.Windows.Forms.Label();
             this.dividend2 = new System.Windows.Forms.Label();
             this.mult2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.addFeedback = new System.Windows.Forms.Label();
             this.subFeedback = new System.Windows.Forms.Label();
             this.multFeedback = new System.Windows.Forms.Label();
             this.divisionFeedback = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multAnswerBox)).BeginInit();
@@ -174,17 +173,6 @@ namespace Math_Quiz
             this.plusLabel2.Size = new System.Drawing.Size(153, 18);
             this.plusLabel2.TabIndex = 6;
             this.plusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // startButton
-            // 
-            this.startButton.Image = ((System.Drawing.Image)(resources.GetObject("startButton.Image")));
-            this.startButton.Location = new System.Drawing.Point(61, 368);
-            this.startButton.Margin = new System.Windows.Forms.Padding(4);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(99, 34);
-            this.startButton.TabIndex = 8;
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // timer1
             // 
@@ -365,17 +353,6 @@ namespace Math_Quiz
             this.mult2.TabIndex = 25;
             this.mult2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(454, 368);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 34);
-            this.button1.TabIndex = 26;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // addFeedback
             // 
             this.addFeedback.Location = new System.Drawing.Point(18, 81);
@@ -412,10 +389,20 @@ namespace Math_Quiz
             // label10
             // 
             this.label10.Image = global::Math_Quiz.Properties.Resources.Button_check;
-            this.label10.Location = new System.Drawing.Point(281, 324);
+            this.label10.Location = new System.Drawing.Point(427, 339);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 123);
+            this.label10.Size = new System.Drawing.Size(74, 63);
             this.label10.TabIndex = 31;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.Image = global::Math_Quiz.Properties.Resources.Start_button;
+            this.label11.Location = new System.Drawing.Point(188, 339);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 63);
+            this.label11.TabIndex = 32;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // Form1
             // 
@@ -423,12 +410,12 @@ namespace Math_Quiz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(726, 429);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.divisionFeedback);
             this.Controls.Add(this.multFeedback);
             this.Controls.Add(this.subFeedback);
             this.Controls.Add(this.addFeedback);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.mult2);
             this.Controls.Add(this.dividend2);
             this.Controls.Add(this.dividend1);
@@ -446,7 +433,6 @@ namespace Math_Quiz
             this.Controls.Add(this.difference);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sum);
-            this.Controls.Add(this.startButton);
             this.Controls.Add(this.plusLabel2);
             this.Controls.Add(this.plusLabel1);
             this.Controls.Add(this.plusEquals);
@@ -456,6 +442,7 @@ namespace Math_Quiz
             this.Controls.Add(this.timeLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -479,7 +466,6 @@ namespace Math_Quiz
         private System.Windows.Forms.Label plusEquals;
         private System.Windows.Forms.Label plusLabel1;
         private System.Windows.Forms.Label plusLabel2;
-        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown sum;
 
@@ -657,12 +643,12 @@ namespace Math_Quiz
         private System.Windows.Forms.Label dividend1;
         private System.Windows.Forms.Label dividend2;
         private System.Windows.Forms.Label mult2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label addFeedback;
         private System.Windows.Forms.Label subFeedback;
         private System.Windows.Forms.Label multFeedback;
         private System.Windows.Forms.Label divisionFeedback;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 
         }
