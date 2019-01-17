@@ -99,6 +99,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\division-small.jpg" />
+    <Content Include="images\math-quiz-icon.ico" />
     <Content Include="images\minus-small.png" />
     <Content Include="images\mult-small.jpg" />
     <Content Include="images\plus-sign-small-45.jpg" />

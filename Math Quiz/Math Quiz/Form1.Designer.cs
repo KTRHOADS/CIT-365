@@ -94,7 +94,7 @@ namespace Math_Quiz
             this.multFeedback = new System.Windows.Forms.Label();
             this.divisionFeedback = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.startButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multAnswerBox)).BeginInit();
@@ -395,14 +395,14 @@ namespace Math_Quiz
             this.label10.TabIndex = 31;
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // label11
+            // startButton
             // 
-            this.label11.Image = global::Math_Quiz.Properties.Resources.Start_button;
-            this.label11.Location = new System.Drawing.Point(188, 339);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 63);
-            this.label11.TabIndex = 32;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.startButton.Image = global::Math_Quiz.Properties.Resources.Start_button;
+            this.startButton.Location = new System.Drawing.Point(188, 339);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(74, 63);
+            this.startButton.TabIndex = 32;
+            this.startButton.Click += new System.EventHandler(this.label11_Click);
             // 
             // Form1
             // 
@@ -410,7 +410,7 @@ namespace Math_Quiz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(726, 429);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.divisionFeedback);
             this.Controls.Add(this.multFeedback);
@@ -648,7 +648,7 @@ namespace Math_Quiz
         private System.Windows.Forms.Label multFeedback;
         private System.Windows.Forms.Label divisionFeedback;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label startButton;
     }
 
         }
