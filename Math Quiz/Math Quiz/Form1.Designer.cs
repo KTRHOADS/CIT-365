@@ -3,7 +3,10 @@
 namespace Math_Quiz
 {
     partial class Form1
-    {
+    {  //Get the Date
+        static System.DateTime date = System.DateTime.Now;
+        string formatted = date.ToString("dd MMMM yyyy");
+
         //Random Number Generator
         System.Random random = new System.Random();
 
@@ -95,6 +98,7 @@ namespace Math_Quiz
             this.divisionFeedback = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multAnswerBox)).BeginInit();
@@ -404,12 +408,22 @@ namespace Math_Quiz
             this.startButton.TabIndex = 32;
             this.startButton.Click += new System.EventHandler(this.label11_Click);
             // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(540, 18);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(0, 17);
+            this.dateLabel.TabIndex = 33;
+            this.dateLabel.Click += new System.EventHandler(this.label11_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(726, 429);
+            this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.divisionFeedback);
@@ -446,7 +460,7 @@ namespace Math_Quiz
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Math Quiz ";
+            this.Text = "Kenneth Todd Rhoads - Math Quiz ";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.sum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).EndInit();
@@ -469,8 +483,11 @@ namespace Math_Quiz
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown sum;
 
+        
         public void StartQuiz() {
-            
+            //Show The Date
+            dateLabel.Text = formatted;
+
             //Restart Timer
             timeRemaining = maxTime;
             timer1.Enabled = true;
@@ -649,6 +666,7 @@ namespace Math_Quiz
         private System.Windows.Forms.Label divisionFeedback;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label startButton;
+        private System.Windows.Forms.Label dateLabel;
     }
 
         }

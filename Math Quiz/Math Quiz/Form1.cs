@@ -120,6 +120,11 @@ namespace Math_Quiz
             divisionAnswerBox.Value = 0;
             multAnswerBox.Value = 0;
         }
+
+        private void label11_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
