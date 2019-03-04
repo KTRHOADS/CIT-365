@@ -17,7 +17,8 @@ namespace My_Scripture_Journal.Models
         public int Chapter { get; set; }
         public String Verses { get; set; }
         public String Note { get; set; }
-       
+        public String Passage { get; set; }
+
         public String DatePosted { get => datePosted; set => datePosted = value; }
     }
 }

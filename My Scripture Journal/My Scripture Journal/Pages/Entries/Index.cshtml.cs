@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using My_Scripture_Journal.Models;
+using PagedList;
+
+
 
 
 
@@ -42,15 +45,17 @@ namespace My_Scripture_Journal.Pages.Entries
 
         public string SortOrder { get => sortOrder; set => sortOrder = value; }
 
-       
-       
-        public async Task OnGetAsync(string sortOrder)
+
+
+        public async Task OnGetAsync(string sortOrder, int? page)
         {
+
+
             BookSort = String.IsNullOrEmpty(sortOrder) ? "book" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
 
             IQueryable<Entry> entries = from e in _context.Entry
-                                            select e;
+                                        select e;
 
             switch (sortOrder)
             {
@@ -60,22 +65,23 @@ namespace My_Scripture_Journal.Pages.Entries
                 case "Date":
                     entries = entries.OrderBy(e => Convert.ToDateTime(e.DatePosted));
                     break;
-               
+
                 default:
                     entries = entries.OrderBy(e => e.ID);
                     break;
             }
 
-           Entry = await entries.ToListAsync();
+            Entry = await entries.ToListAsync();
 
             // Use LINQ to get list of genres.
-          IQueryable<string> bookQuery = from e in _context.Entry
-                                            orderby e.Book
-                                            select e.Book;
+            IQueryable<string> bookQuery = from e in _context.Entry
+                                           orderby e.Book
+                                           select e.Book;
 
-           
 
-          
+
+
+
 
 
             if (!string.IsNullOrEmpty(SearchString))
@@ -86,7 +92,7 @@ namespace My_Scripture_Journal.Pages.Entries
             if (!string.IsNullOrEmpty(EntryBook))
             {
                 entries = entries.Where(x => x.Book == EntryBook);
-               
+
             }
 
             if (!string.IsNullOrEmpty(BookSearchString))
@@ -97,20 +103,11 @@ namespace My_Scripture_Journal.Pages.Entries
 
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
             Entry = await entries.ToListAsync();
-           
         }
 
-        public void BtnSearchByBook_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Got Here!");
-            IQueryable<Entry> entries = from ent in _context.Entry
-                                        select ent;
-            if (!string.IsNullOrEmpty(SearchString)) {
-
-                entries = entries.Where(x => x.Book == SearchString);
-            }
+       
         }
     }
-}
+
 
     
