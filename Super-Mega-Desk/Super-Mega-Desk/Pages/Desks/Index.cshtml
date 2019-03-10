@@ -1,0 +1,120 @@
+﻿@page "{id:int?}"
+@model Super_Mega_Desk.Pages.Desks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Desk Quotes</h1>
+
+<form>
+    <p>
+
+        <select asp-for="CustomerName" asp-items="Model.Customers"></select>
+
+        <input type="submit" value="Filter" />
+
+
+
+    </p>
+</form>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CustomerSort">
+                    @Html.DisplayNameFor(model => model.Desk[0].CustomerName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].Depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].FinalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].ShippingCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].ShippingDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].Material)
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desk[0].DrawerNumber)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Desk[0].Date)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.deskToPageList)
+        {
+        <tr>
+            <td>
+            <a asp-page="./Details" asp-route-id="@item.ID"> @Html.DisplayFor(modelItem => item.CustomerName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Depth)
+            </td>
+            <td>
+                $  @Html.DisplayFor(modelItem => item.FinalCost)
+            </td>
+            <td>
+                $  @Html.DisplayFor(modelItem => item.ShippingCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippingDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrawerNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> 
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<p>Page @Model.pageNo of @Model.NoOfPages</>
+<button onclick="@{
+    Model.pageNo += 1;
+    if (Model.pageNo > Model.NoOfPages) {
+        Model.pageNo = 1; 
+    }
+    
+})"> Next Page </button> 
+
+
+

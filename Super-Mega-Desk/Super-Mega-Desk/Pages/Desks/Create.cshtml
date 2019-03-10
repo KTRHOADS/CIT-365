@@ -1,0 +1,76 @@
+﻿@page
+@model Super_Mega_Desk.Pages.Desks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div id="Create-Div">
+    <h1> Order</h1>
+
+
+    <h4>A Desk</h4>
+    <hr />
+    <div id="Input-Div">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Desk.CustomerName" class="control-label"></label>
+                        <input asp-for="Desk.CustomerName" class="form-control" />
+                        <span asp-validation-for="Desk.CustomerName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desk.Width" class="control-label"></label>
+                        <input asp-for="Desk.Width" class="form-control" />
+                        <span asp-validation-for="Desk.Width" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desk.Depth" class="control-label"></label>
+                        <input asp-for="Desk.Depth" class="form-control" />
+                        <span asp-validation-for="Desk.Depth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desk.Material" class="control-label"></label>
+                        <select asp-for="Desk.Material" class="form-control">
+                            <option value="Rosewood">Rosewood</option>
+                            <option value="Veneer">Veneer</option>
+                            <option value="Oak">Oak</option>
+                            <option value="Laminate">Laminate</option>
+                            <option value="Pine">Pine</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desk.ShippingDays" class="control-label"></label>
+                        <select id="shipping-drop-down" asp-for="Desk.ShippingDays" class="form-control">
+                            <option value=3>3</option>
+                            <option value=5>5</option>
+                            <option value=7>7</option>
+                            <option value=14>14</option>
+                        </select>
+                        <a asp-page="Rush_Explanation">Rush Explanation</a>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desk.DrawerNumber" class="control-label"></label>
+                        <input asp-for="Desk.DrawerNumber" class="form-control" />
+                        <span asp-validation-for="Desk.DrawerNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

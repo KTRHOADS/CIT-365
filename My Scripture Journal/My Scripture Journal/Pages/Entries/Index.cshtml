@@ -1,11 +1,21 @@
-﻿@page "{id:int?}"
+﻿
+
+@page "{id:int?}"
 @model My_Scripture_Journal.Pages.Entries.MultiSelectList
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Desk Orders";
 }
 
-<h1>Index</h1>
+<script language="C#" runat="server">
+
+    void LinkButton_Click(Object sender, EventArgs e)
+    {
+      Label1.Text = "Hello!";
+    }
+
+</script>
+<h1>Desk Orders</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -57,36 +67,41 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Entry) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StandardWork)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Book)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chapter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Verses)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Passage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatePosted)
-            </td>
+        @foreach (var item in Model.entryToPage)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandardWork)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chapter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Verses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Passage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePosted)
+                </td>
 
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<a href="#" runat="server" onServerClick="LinkButton_Click">Click Me!</a>
+<p>Page @Model.pageNo of @Model.NoOfPages</p>
+<asp:Label id="Label1" runat="server" />

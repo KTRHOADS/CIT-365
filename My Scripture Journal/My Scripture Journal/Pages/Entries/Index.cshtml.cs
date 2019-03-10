@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -31,6 +31,7 @@ namespace My_Scripture_Journal.Pages.Entries
         public string SearchString { get; set; }
         public string BookSearchString { get; set; }
         public SelectList SortList { get; private set; }
+        public IPagedList<Entry> entryToPage; 
 
         // Requires using Microsoft.AspNetCore.Mvc.Rendering;
         public Microsoft.AspNetCore.Mvc.Rendering.SelectList Books { get; set; }
@@ -42,14 +43,16 @@ namespace My_Scripture_Journal.Pages.Entries
         public string DateSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
-
+        public int pageNo { get; set; }
+        public int NoOfPages { get; set; }
         public string SortOrder { get => sortOrder; set => sortOrder = value; }
+ 
 
-
-
-        public async Task OnGetAsync(string sortOrder, int? page)
+       
+        public async Task OnGetAsync(string sortOrder)
         {
-
+           
+                 pageNo = 1;
 
             BookSort = String.IsNullOrEmpty(sortOrder) ? "book" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
@@ -103,8 +106,14 @@ namespace My_Scripture_Journal.Pages.Entries
 
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
             Entry = await entries.ToListAsync();
+            entryToPage  = Entry.ToPagedList(pageNo, 3);
+            NoOfPages = entryToPage.PageCount;
+          
         }
 
+        public void myFunction_Click() {
+           pageNo = 2;
+        }
        
         }
     }
