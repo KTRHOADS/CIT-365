@@ -69,3 +69,24 @@ img {
    
 }
 
+tr:nth-child(even), th {
+    background-color: cornflowerblue;
+    color: darkslategray;
+   
+}
+
+a {
+   color: purple;
+}
+
+footer {
+    background-color:white;
+}
+
+.table {
+    margin:5em;
+}
+
+
+
+
